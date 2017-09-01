@@ -1,0 +1,93 @@
+GNU : G NU is Not Unix
+
+bash(Bourne Again Shell)
+best shell => zsh
+
+CPU MEMORY DEVICES
+      KERNEL
+   APPLICATIONS
+
+auto env => .env
+ (따로 해야 함)
+iterm theme? : bullet train(instructors)
+ blog.ulgoon.com
+web dev : flask(light), django(professional)
+CLI?
+Why we are learning vim?
+ Because google cloud is involved in vim and also we can develop programs in any situation
+
+kernel commands -
+~ : user folder의 최상단
+/ : root folder
+ls : 현재 folder에 뭐가 있나 listing
+ -al : a(all)l(list, line), 모든 파일을(숨긴 파일까지 다) 라인 by 라인의 형태로 출력해라
+cd (dir name) : 디렉터리 변경
+ cd .. : upto 1 dir
+ cd ./ : refresh (현재 폴더 나갔따가 다시 들어오기)
+mkdir (dir name) : 디렉터리 생성
+touch (file name) : 파일 생성 (예: touch example.txt)
+rm (file name) : remove, can't remove directory
+ rm -rf (dir name) : r = recurcive(안에 있는거 다 지우고, 얘도 지우고), f = force(강제로 지우기)
+mv (file name) (location) : move the (file) in this location to (locaiton)
+cp (file name) (location) : copy ~(same to above)
+chmod (0o)(0o)(0o) (file name) : rwx를 각각의 3bit로 표현하여 user/group/others의 세 그룹으로 표현된 파일 모드를 변경한다.
+ chomod 764 (file name)이 가장 흔하다. (764 : 111101100 = rwxrw-r--)
+ * 파일 모드는 최상위 디렉터리/file 구분 1bit(d or -)와 하위 9bit(allowance of each category)로 이루어진다.
+vim(or vi) (file name) : open the file with text editor "vim"
+ *we can refer some commands with searching "vim cheat sheet" in google
+ normal mode-
+  "set nu" : display the lines
+  "shift+arrow key" : move and stop at changed data type
+  ":" : call menu
+   q : quit (if file changed, can not quit before we reflect of ignore)
+   wq : write and quit
+   q! : ignoring the changed things
+ "u" : undo
+ "ctrl+r" : redo
+ "dd" : delete but copy(1 line)
+ "o" : enter the insert mode with 'enter'
+ "shift+o" : enter the insert mode with 'enter' from above line
+ "q" : start recording macro
+  +(macro name) : recording name. it has remained until close the terminal
+  q(repush) : stop to record macro
+ "@(macro name)" : once you made macro with this name, you can call macro.
+ "(numbers)@(macro name)" : it call macro for (numbers) times
+  (ex) qa -> (recording) -> q -> @a -> 9@a
+ "p" : paste
+ *In every mode, we can exit using 'esc'key
+ "i" : into the insert mode
+ "v" : into the visual mode
+  once enter the visual mode, our curor movements make the block from origin location. and then we can make it some command
+  "y" : copy
+  "d" : delete but copy
+
+crontab? cronide?
+
+GIT -
+main idea-
+workspace -[add]-> stage(index) -[commit]-> local_repository -[push]-> remote_repository
+
+command-
+git init : 깃을 시작할 해당 폴더로 들어가서 '처음 1번만' 실행한다. 일단 init이 실행되면, 그 폴더에 있는 모든 파일들은 깃에의해 로깅된다. (깃에서는 트래킹의 개념이 스테이지 기준이라 스테이지에 안올라온 파일은 다 트래킹인 안된다고 나온다 : 결론-이트래킹과 저트래킹의 의미가 다르다)
+           따라서 프로젝트 시작 시 제일 처음 켜주는 게 좋다. 이후 모든 설정과 같은 것은 .env에 저장된다.
+git status : kernel의 ls 처럼 항상 명령어 실행뒤에 실행시켜서 상태 확인 해주기
+             제일 처음 혹은 파일들이 수정/생성 되고 나서 처음 실행하면 트래킹이 안되었다고? 빨간색으로 파일명들이 뜸 -> 이때는 add 명령어를 쳐주던가 rm 명령어로 무시하게 만들면 됨
+git add (file or dir name) : 이 명령어로 stage에 올리게 된다. 이후 status치면 commit하라고 나온다
+    rm (") : 이 명령어 사용하면 무시한다.
+git commit -m "message" : remote 전에 라벨링하는 거라 보면 된다. 올릴 패키지에 메시지를 입력해 놓는다. 마지막 쌍따옴표를 안쓰고 엔터치면 제일 처음 줄을 제목이 되고, 아랫줄 부터는 본문내용이 된다.
+                          추가적으로 commit만 쓰고 엔터치면 vim으로 넘어가게 되는데 당황하지 말고 vim끄고 다시 -m 이하의 구문을 완성하여 commit을 쳐주자
+이후의 remote과정에서는 진짜 서버로 날리게 되므로 github에 계정과 repository가 있어야 한다. 깃헙에 들어가서 계정을 만들고 repository를 만들자. 이때 올리는 프로젝트 파일 혹은 폴더 이름과 repository 이름을 같게 하면 헛갈리지 않는다.
+추가적인 팁으로 구글계정은 mepbphh+숫자/알파벳@google.com 식으로 쓸 수 있는데, 깃헙에서는 그걸 구분못한다. 즉 한 구글 계정으로 여러개의 아이디를 만들 수 있다. ex) mepbphh@gmail.com, mepbphh+1@gmail.com ..
+완전 처음 git을 사용하는 컴퓨터라면 유저네임과 이메일을 적어주어야 한다.
+ git config --global user.name "username"
+ git config --global user.email "github email address"
+ git config --list : 로 잘 입력됐는지 확인할 수 있다.
+
+git config도 설정했고, 깃헙에도 계정을 만들고 저장소를 만들었으면 그 저장소 주소를 복사한다. 이는 웹 페이지에서 그냥 클릭한번에 클립보드로 저장된다.
+
+git remote add (nick name) (url)
+git push (nick name) (branch name:default is master)
+(현재 이 컴퓨터는 username: Mirdev, nick name: mddc로 설정하였다)
+
+이 모든 과정이 끝났으면 이후로는 add, commit, push만 해주면 된다.
+서버에 있는 파일을 땡길적엔 pull 명령어를 쓴다. git pull origin master
