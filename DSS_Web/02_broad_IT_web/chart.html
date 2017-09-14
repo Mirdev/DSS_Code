@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- (설명) HTML 언어로 작성되어 있다는 점을 알려줌 -->
+
+<head>
+    <!-- HTML 파일 관련 정보를 알려줌 -->
+    <meta charset="utf-8">
+    <!--(설명) IE로 접속했을 때 IE 최신 표준 모드로 렌더링 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--(설명) 반응형 디자인을 위한 viewport 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap | Get Started</title>
+    <!--(설명) Bootstrap.min.css 연결 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--(설명) IE 9 미만 버전에서 HTML5와 media query 지원을 위한 호환 스크립트 설정 -->
+    <!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <!-- 문서 본문 내용이 시작됨을 알려줌 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script type="text/javascript">
+        new Chart(document.getElementById("myChart"), {
+            type: 'line',
+            data: {
+            labels: ['W24','W25','W26','W27','W28','W29'],
+            datasets: [{ 
+            data: [108587,112479,98431,69538,63776,60271],
+            label: "Search & Discovery",
+            borderColor: "#3e95cd",
+            fill: true
+            }, { 
+            data: [85340,91593,89152,96015,96634,118252],
+            label: "Asia",
+            borderColor: "#8e5ea2",
+            fill: false
+            }, { 
+            data: [71047,84004,101650,111858,95969,72205],
+            label: "Europe",
+            borderColor: "#3cba9f",
+            fill: false
+            }, { 
+            data: [38869,36461,35081,37508,54625,61807],
+            label: "Latin America",
+            borderColor: "#e8c3b9",
+            fill: false
+            }, { 
+            data: [29928,30096,29396,28949,29020,28955],
+            label: "North America",
+            borderColor: "#c45850",
+            fill: false
+            }
+            ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'The AWS Cost from Week24 to Week29'
+                }
+            }
+        });
+    </script>
+    
+    <!--(설명) Bootstrap jQuery 연결 설정 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+    <!--(설명) Bootstrap javascript 라이브러리 연결 설정 -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

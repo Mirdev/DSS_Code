@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ray's notepad</title>
+		<script type="text/javascript">
+			var cnt=0;
+			function changeimg(id, state){
+				var image_tag = document.getElementById(id);
+				if(state=="clk"){
+					cnt++;
+					if(cnt%3==1){
+						image_tag.setAttribute("src", "click.jpg");
+					}
+					else if(cnt%3==2){
+						image_tag.setAttribute("src", "clickblue.jpg");
+					}
+					else{
+						image_tag.setAttribute("src", "dimg.png")
+					}
+				}
+				else if(state=="over"){
+					image_tag.setAttribute("src", "clickblue.jpg");
+				}
+				else if(state=="out"){
+					image_tag.setAttribute("src", "dimg.png");
+				}
+				else if(state=="dblclk"){
+					image_tag.setAttribute("src", "img/abc.jpg");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<img src="dimg.png" id="img" onmouseover="changeimg('img', 'over');" onclick="changeimg('img', 'clk');" onmouseout="changeimg('img', 'out');" ondblclick="changeimg('img', 'dblclk')">
+	</body>
+</html>

@@ -1,0 +1,8 @@
+Frame이 매주 중요
+PyCharm
+
+웹 크롤링 : 긁어오는
+서비스 로깅 : 사용자가 하는 행위를 로깅
+
+crome => alt+command+i(F12) => console
+

@@ -1,0 +1,39 @@
+실행: bitnami WAMP Stack Manager Tool
+
+Open phpMyAdmin 메뉴 선택
+
+ID: root
+PW: bitnami 설치시 PW
+
+SQL 메뉴 이동
+
+show databases;
+
+create database example;
+
+use example;
+
+CREATE TABLE posts (
+        id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+        title varchar(255),
+        hit int(10) unsigned NOT NULL,
+        PRIMARY KEY (id)
+        );
+
+DESC posts;
+
+INSERT INTO posts(title,hit) VALUES ('애플 TV, 아이패드로 원격 조정한다',12);
+
+INSERT INTO posts(title,hit) VALUES ('5월 안드로이드페이 한국 진출',24); 
+
+SELECT * FROM posts;
+ 
+SELECT * FROM posts WHERE title LIKE '%애플%';
+ 
+SELECT * FROM posts WHERE hit >= 20;
+ 
+SELECT title FROM posts; 
+
+UPDATE posts SET hit = 1 WHERE title LIKE '%애플%';
+
+DELETE FROM posts WHERE title LIKE '%애플%';
