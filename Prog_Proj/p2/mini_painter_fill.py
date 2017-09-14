@@ -12,38 +12,45 @@ board = [[1, 1, 2, 2, 2, 2],
 # color : 새로 칠하게 될 색 값을 나타냄
 # 모든 인접한 주변의 같은 색깔을 새로운 color로 칠함
 def fill(mini_board, x, y, color):
-    pass
+    d = mini_board[y][x]
+    mini_board[y][x] = color
+    if x>-1 and d == mini_board[y][x-1] : fill(mini_board, x-1, y, color)
+    if x<5 and d == mini_board[y][x+1] : fill(mini_board, x+1, y, color)
+    if y>-1 and d == mini_board[y-1][x] : fill(mini_board, x, y-1, color)
+    if y<5 and d == mini_board[y+1][x] : fill(mini_board, x, y+1, color)
 
 # mini_board : 2차원 리스트(리스트의 리스트)로 그림판을 나타냄
 # 해당 보드를 화면에 출력
 def show(mini_board):
-    pass
+    for row in mini_board:
+        for item in row:
+            print(item, end = " ")
+        print() 
 
 # 최초에 그림판의 상태를 보여줌
 show(board)
 
 while True:
-    print 'please intert key..'
-    print 'f -> fill q -> quit'
+    print ('please intert key..')
+    print ('f -> fill q -> quit')
 
     # 사용자에게 커맨드를 입력 받음
-    cmd = raw_input()
+    cmd = input()
 
     if cmd == 'f':
-        print 'insert x, y index & color'
+        print ('insert x, y index & color')
 
         # 3 4 5와 같은 형식으로, 띄어쓰기를 기준으로 각각 인덱스와 색의 값을 받음
-        index = raw_input()
+        index = input()
         x, y, color = map(int, index.split(' '))
 
         try:
             fill(board, x, y, color)
         except:
-            print 'invalid index'
-
+            print ('invalid index')
         show(board)
 
     elif cmd == 'q': # q인 경우 프로그램 종료
         break
     else:
-        print 'no command available'
+        print ('no command available')
