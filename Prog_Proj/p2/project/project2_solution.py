@@ -55,7 +55,7 @@ def is_done(puzzle, complete):
     return puzzle == complete
 
 def get_index(puzzle, n):
-    for i in range(len(puzzle)):
+    for i in range(len(puzzle)): #굳이 두번 돌 필요 없음
         try:
             index = puzzle[i].index(n)
             return i, index
@@ -86,7 +86,8 @@ def move_by_index(puzzle, i, j):
 # 퍼즐 생성
 size = int(input(' -> please insert puzzle size : '))
 puzzle = initiate_puzzle3(size)
-complete = [row[:] for row in puzzle]
+complete = puzzle[:] #shallow copy
+complete = [row[:] for row in puzzle] #deep copy
 
 # 퍼즐 섞기
 shuffle_puzzle(puzzle)
